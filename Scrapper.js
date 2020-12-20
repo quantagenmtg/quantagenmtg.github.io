@@ -15,10 +15,12 @@ function getthefucknwebsite2POST() {
 };
 
 function ScrapWebsite() {
-  let acturl = 'https://en.wikipedia.org/wiki/Web_scraping';
-  let url = `https://cors-anywhere.herokuapp.com/` + acturl;
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
 
-  fetch(url)
+  fetch("https://cors-anywhere.herokuapp.com/https://www.cardmarket.com/en/Magic/Cards/Arcane-Signet?language=1&minCondition=2&isSigned=N&isAltered=N", requestOptions)
   .then(response => response.text())
   .then(res => {document.getElementById('demo').innerHTML=res})
   .catch(error => {document.getElementById('demo').innerHTML=error})
