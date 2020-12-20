@@ -15,7 +15,9 @@ function getthefucknwebsite2POST() {
 };
 
 function ScrapWebsite() {
-  let url = 'https://en.wikipedia.org/wiki/Web_scraping';
+  let acturl = 'https://en.wikipedia.org/wiki/Web_scraping';
+  let url = `https://cors-anywhere.herokuapp.com/` + acturl;
+
   fetch(url)
   .then(response => response.text())
   .then(res => {document.getElementById('demo').innerHTML=res})
