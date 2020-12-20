@@ -16,7 +16,16 @@ function getthefucknwebsite2POST() {
 };
 
 function ScrapWebsite() {
-  var raw = "[\r\n    {\r\n        \"selector\": \"#firstHeading\",\r\n        \"get\": \"text\"\r\n    },\r\n    {\r\n        \"selector\": \"#siteSub\",\r\n        \"get\": \"text\"\r\n    }\r\n]";
+  var raw = [
+    {
+      "selector": "#firstHeading",
+      "get": "text"
+    },
+    {
+      "selector": "#siteSub",
+      "get": "text"
+    }
+  ];
 
   var requestOptions = {
     method: 'POST',
