@@ -16,27 +16,20 @@ function getthefucknwebsite2POST() {
 };
 
 function ScrapWebsite() {
-  var raw = [
-    {
-      "selector": "#firstHeading",
-      "get": "text"
-    },
-    {
-      "selector": "#siteSub",
-      "get": "text"
+  var data = "[\r\n  {\r\n    \"selector\": \"#firstHeading\",\r\n    \"get\": \"text\"\r\n  },\r\n  {\r\n    \"selector\": \"#siteSub\",\r\n    \"get\": \"text\"\r\n  }\r\n]";
+
+  var xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+  
+  xhr.addEventListener("readystatechange", function() {
+    if(this.readyState === 4) {
+      {document.getElementById('demo').innerHTML=this.responseText};
     }
-  ];
-
-  var requestOptions = {
-    method: 'POST',
-    body: raw,
-    redirect: 'follow'
-  };
-
-  fetch("https://proxybot.io/api/v1/s3MxG9sFddfgxio6Ok6KmomgYdr1?url=https://en.wikipedia.org/wiki/Web_scraping", requestOptions)
-    .then(response => response.text())
-    .then(res => {document.getElementById('demo').innerHTML=res})
-    .catch(error => {document.getElementById('demo').innerHTML=error});
+  });
+  
+  xhr.open("POST", "https://proxybot.io/api/v1/s3MxG9sFddfgxio6Ok6KmomgYdr1?url=https://en.wikipedia.org/wiki/Web_scraping");
+  
+  xhr.send(data);
 }
 
 document.querySelector("button").addEventListener("click", function(){
