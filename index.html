@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> MTG Investment Tracker </title>
+    <style>
+      table, th, td {border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+    }
+      th {
+      text-align: center;
+    }
+    </style>
+  </head>
+  <h1>
+  <center><u>Personal Investment Tracker</u></center>
+  </h1>
+  <h3>
+    Investments of Lionel and Patrick combined:
+  </h3>
+  <table style="width:100%" id = 'table'></table>
+  The total investment is: <span id='netInvestmentLP'><em>Loading...</em></span></br>
+  The total delivery fee is: <span id='netDelFeesLP'><em>Loading...</em></span></br>
+  The total for the lowest current price is: <span id='netCurLowPriceLP'><em>Loading...</em></span></br>
+  The total profit is: <span id='netProfitLP'><em>Loading...</em></span></br>
+  The total profit minus the total delivery fee is: <span id='netDelFeesMinLP'><em>Loading...</em></span></br>
+  <script src="Scrapper.js"></script>
+</html>
