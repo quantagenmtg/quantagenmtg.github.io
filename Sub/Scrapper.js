@@ -9,7 +9,7 @@ async function ScrapWebsite(url) {
   var x = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`, requestOptions)
     .then(response => response.text())
     .then(result => {
-      var st = result.search("Available from")+48;
+      var st = result.search("From</dt>")+38;
       var end = result.search("€</dd>")-1;
       res = result.substring(st,end);
     })
@@ -18,11 +18,12 @@ async function ScrapWebsite(url) {
 };
 
 //Pops and Lolz data
-let cards = ['Gaeas-Cradle','Savannah','Tropical Island','Tundra','Badlands','Power-Artifact','Lake-of-the-Dead','Survival-of-the-Fittest','Earthcraft','Lions-Eye-Diamond','Null-Rod','Time-Spiral','Squandered-Resources','Academy-Rector','Yawgmoths-Will','Rofellos-Llanowar-Emissary','Gilded-Drake','Palinchron','Intuition'];
-let investor = ['Patrick','Patrick','Patrick','Patrick','Patrick','Lionel', 'Lionel','Lionel','Lionel','Lionel','Lionel','Lionel','Lionel','Lionel','Lionel','Lionel','Lionel','Lionel','Lionel'];
-let amount = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-let investment = ['515.00','210.00','380.00','250.00','268.99','182.99','45.00','145.00','80.00','299.00','45.00','89.95','14.50','59.00','100.00','19.97','165.00','28.00','99.95'];
-let deliveryfees = ['18.48','14.07','16.00','16.00','12.20','7.99','5.95','9.53','9.95','16.49','6.70','5.99','1.70','4.00', '14.20','11.30','13.58','5.64','15.49'];
+let cards = ['Azusa, lost but seeking'];
+let investor = ['Lionel'];
+let cardurl = ['https://www.cardmarket.com/en/Magic/Products/Singles/Masters-25/Azusa-Lost-but-Seeking?language=1&minCondition=2&isSigned=N&isPlayset=N&isAltered=N']
+let amount = [4]
+let investment = ['16.95'];
+let deliveryfees = ['1.70'];
 
 window.onload = async function() {
 
@@ -40,9 +41,8 @@ window.onload = async function() {
   </tr>`;
   for (i=0; i<cards.length; i++) {
     var cardname = cards[i].replaceAll('-', ' ');
-    var cardurl = `https://www.cardmarket.com/en/Magic/Cards/${cards[i]}?language=1&minCondition=2&isSigned=N&isPlayset=N&isAltered=N`;
     document.getElementById('table').innerHTML += `<tr>
-    <td><a href = \'${cardurl}\'>${cardname}</a></td>
+    <td><a href = \'${cardurl[i]}\'>${cardname}</a></td>
     <td>${investor[i]}</td>
     <td>${amount[i]}</td>
     <td>${investment[i]}</td>
@@ -62,8 +62,7 @@ window.onload = async function() {
   for (i=0; i<cards.length; i++) {
     netInvestment += parseFloat(investment[i]);
     netDeliveryFees += parseFloat(deliveryfees[i]);
-    var cardurl = `https://www.cardmarket.com/en/Magic/Cards/${cards[i]}?language=1&minCondition=2&isSigned=N&isPlayset=N&isAltered=N`;
-    var curprice = await ScrapWebsite(cardurl);
+    var curprice = await ScrapWebsite(cardurl[i]);
     curprice = curprice.replace(',','.');
     document.getElementById(cards[i]).innerHTML = curprice;
     netCurLowPrice += parseFloat(curprice)*amount[i];
