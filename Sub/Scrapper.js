@@ -18,7 +18,7 @@ async function ScrapWebsite(url) {
 };
 
 //Pops and Lolz data
-let cards = ['Azusa, lost but seeking'];
+let cards = ['Azusa, Lost but Seeking'];
 let investor = ['Lionel'];
 let cardurl = ['https://www.cardmarket.com/en/Magic/Products/Singles/Masters-25/Azusa-Lost-but-Seeking?language=1&minCondition=2&isSigned=N&isPlayset=N&isAltered=N']
 let amount = [4]
