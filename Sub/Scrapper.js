@@ -18,12 +18,14 @@ async function ScrapWebsite(url) {
 };
 
 //Pops and Lolz data
-let cards = ['Azusa, Lost but Seeking'];
-let investor = ['Lionel'];
-let cardurl = ['https://www.cardmarket.com/en/Magic/Products/Singles/Masters-25/Azusa-Lost-but-Seeking?language=1&minCondition=2&isSigned=N&isPlayset=N&isAltered=N']
-let amount = [4]
-let investment = ['16.95'];
-let deliveryfees = ['1.70'];
+let cards = ['Azusa, Lost but Seeking','Gemstone Caverns', 'Dark Confidant'];
+let investor = ['Lionel','Alek', 'Lionel'];
+let cardurl = ['https://www.cardmarket.com/en/Magic/Products/Singles/Masters-25/Azusa-Lost-but-Seeking?language=1&minCondition=2&isSigned=N&isPlayset=N&isAltered=N',
+'https://www.cardmarket.com/en/Magic/Products/Singles/Time-Spiral-Remastered/Gemstone-Caverns?language=1&minCondition=2&isSigned=N&isPlayset=N&isAltered=N',
+'https://www.cardmarket.com/en/Magic/Products/Singles/Modern-Masters-2015/Dark-Confidant?language=1&minCondition=2&isSigned=N&isPlayset=N&isAltered=N']
+let amount = [4,4,4]
+let investment = ['16.95','57.92','80.00'];
+let deliveryfees = ['1.70','3.71','6.27'];
 
 window.onload = async function() {
 
